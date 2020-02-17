@@ -1,0 +1,99 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$primaryColor:#3dbcf3;
+$whiteColor:white;
+$redColor:red;
+$toolBarColor:#2a3a4a;
+$sideMenuColor:#485d72;
+$sideMenuIconColor:#d8d8d8;
+
+.primaryColor {
+    color:$primaryColor
+}
+  
+%primaryBackgroundColor {
+    background:$primaryColor
+}
+
+%menu-hover {
+    @extend %primaryBackgroundColor; 
+    color: $whiteColor;
+}
+
+.mat-badge-content {
+    @extend %primaryBackgroundColor;
+}
+
+.example-container {
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+  
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+  
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+        padding: 15px 20px;
+        cursor: pointer;
+    }
+
+    li:hover {
+        @extend %menu-hover; 
+    }
+
+}
+
+.selectedBackground {
+    @extend %menu-hover; 
+}
+
+.example-sidenav {
+    padding: 0px;
+    background: $sideMenuColor;
+    color: $sideMenuIconColor;
+}
+
+.menuIconClass {
+    font-size: 35px;
+    height: 35px!important;
+    width: 35px!important;
+    padding-right: 14px;
+}
+
+.alert-danger {
+    color: $redColor;
+}
+
+.mat-toolbar {
+    background: $toolBarColor;
+    color: $whiteColor;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.mat-icon {
+    cursor: pointer;
+}
+
+.example-icon {
+    padding: 0 14px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+  

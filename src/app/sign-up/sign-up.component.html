@@ -1,0 +1,106 @@
+<form [formGroup]="signUpForm" class="example-form">
+
+  <h1>Create user</h1>
+ 
+  <mat-form-field class="example-full-width">
+    <mat-label>UserName</mat-label>
+    <input formControlName="userName" matInput required>
+    <mat-error *ngIf="signUpForm.get('userName').hasError('required')">
+      UserName is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Email Id</mat-label>
+    <input formControlName="emailId" matInput required>
+    <mat-error *ngIf="signUpForm.get('emailId').hasError('email') && !signUpForm.get('emailId').hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="signUpForm.get('emailId').hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Password</mat-label>
+    <input type="password" formControlName="password" matInput required>
+    <mat-error *ngIf="signUpForm.get('password').hasError('required')">
+      password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Confirm Password</mat-label>
+    <input type="password" formControlName="confirmPassword" matInput required>
+    <mat-error *ngIf="signUpForm.get('confirmPassword').hasError('required')">
+      Confirm password is <strong>required</strong>
+    </mat-error>
+    <mat-error *ngIf="signUpForm.get('confirmPassword').hasError('notmatch')">
+      Password not <strong>match</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>DisplayName</mat-label>
+    <input formControlName="displayName" matInput required>
+    <mat-error *ngIf="signUpForm.get('displayName').hasError('required')">
+      DisplayName is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>FirstName</mat-label>
+    <input formControlName="firstName" matInput>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>LastName</mat-label>
+    <input formControlName="lastName" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>NickName</mat-label>
+    <input formControlName="nickName" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>WebSite</mat-label>
+    <input formControlName="webSite" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Bio</mat-label>
+    <input formControlName="Bio" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Jabber</mat-label>
+    <input formControlName="jabber" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>AOL IM</mat-label>
+    <input formControlName="aolIm" matInput>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Yahoo IM</mat-label>
+    <input formControlName="yahooIM" matInput>
+  </mat-form-field>
+
+  <div class="formButtonClass">
+    <button mat-raised-button color="primary" [disabled]="signUpForm.invalid"  (click)="signUp()">
+      <i class="material-icons md-18">send</i>
+      <span aria-hidden="true">&nbsp;&nbsp;</span>
+      <span>Create And Access</span>
+    </button>
+  </div>
+
+</form>

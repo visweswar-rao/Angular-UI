@@ -1,0 +1,56 @@
+<div class="signInBackGround">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>Contract</span>
+      <span aria-hidden="true">&nbsp;&nbsp;</span>
+      <span class="primaryColor">Portal</span>
+      <span class="example-spacer"></span>
+      <span>Terms of Service</span>
+      <span aria-hidden="true">&nbsp;&nbsp;</span>
+      <span>|</span>
+      <span aria-hidden="true">&nbsp;&nbsp;</span>
+      <span>Privacy policy</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <form [formGroup]="loginForm" class="formBackGround">
+
+    <div class="textAlignCenter">
+      <h1>Welcome Back</h1>
+    </div>
+
+   <div *ngIf="invalidUserOrPassword" class="alert-danger">You enter in-valid username / password</div>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="userName" />
+      <mat-error *ngIf="loginForm.get('userName').hasError('required')">
+        Username is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput formControlName="password">
+      <mat-error *ngIf="loginForm.get('password').hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-grid-list cols="2" rowHeight="2:1">
+      <mat-grid-tile>
+        <mat-checkbox class="example-margin" formControlName="staySignin">Stay sign-in</mat-checkbox>
+      </mat-grid-tile>
+      <mat-grid-tile class="primaryColor">Forgot password</mat-grid-tile>
+    </mat-grid-list>
+    <div class="textAlignCenter">
+      <button mat-raised-button color="primary" [disabled]="loginForm.invalid" (click)="logIn()">
+        <span>Log In</span>
+      </button>
+      <br>
+      <span>Don't have an account?</span>
+      <span aria-hidden="true">&nbsp;&nbsp;</span>
+      <span class="primaryColor" (click)="signUp()">Sign Up</span>
+    </div>
+  </form>
+
+</div>
